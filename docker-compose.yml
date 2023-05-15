@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  main:
+    build: .
+    restart: unless-stopped
+    tty: true
+    container_name: wnlab
+    privileged: true
+      # ports:
+      #- "7799:22"
+    network_mode: "bridge"
+    environment:
+      - DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11unix
+      - /lib/modules:/lib/modules
